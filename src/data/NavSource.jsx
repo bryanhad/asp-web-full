@@ -7,12 +7,12 @@ import LogoutIcon from '@mui/icons-material/Logout'
 export const sideMenus = [
   {
     title: 'DASHBOARD',
-    links: [{ icon: <GridViewIcon />, path: '/admin', name: 'Home' }],
+    links: [{ icon: <GridViewIcon />, path: '/user', name: 'Home' }],
   },
   {
     title: 'MANAGE',
     links: [
-      { icon: <GroupIcon />, path: 'users', name: 'Users' },
+      { icon: <GroupIcon />, path: 'members', name: 'Users' },
       { icon: <VerticalSplitIcon />, path: 'blogs', name: 'Blogs' },
     ],
   },

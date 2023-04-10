@@ -10,7 +10,7 @@ export const UserNavbar = () => {
   const [navOpen, setNavOpen] = useState(false)
 
   return (
-    <div className="w-full bg-primary">
+    <nav className="w-full bg-primary">
       <div className="mx-6 flex justify-between items-center p-4">
         <h1 className="text-2xl font-bold text-slate-100">LOGO</h1>
 
@@ -33,15 +33,15 @@ export const UserNavbar = () => {
         {/* Burger */}
         <div className="md:hidden" onClick={() => setNavOpen(!navOpen)}>
           {navOpen ? (
-            <CloseIcon sx={{ fontSize: '30px' }} />
+            <CloseIcon className='text-slate-100' sx={{ fontSize: '30px' }} />
           ) : (
-            <MenuIcon sx={{ fontSize: '30px' }} />
+            <MenuIcon className='text-slate-100' sx={{ fontSize: '30px' }} />
           )}
         </div>
 
         {/* Burger Menu */}
         <div
-          className={`fixed md:hidden ${
+          className={`fixed z-[1] md:hidden ${
             navOpen ? 'left-0' : 'left-[-100%]'
           } top-0 duration-500 ease-in-out  w-[60vw] h-screen bg-primary/80`}
         >
@@ -112,6 +112,6 @@ export const UserNavbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   )
 }

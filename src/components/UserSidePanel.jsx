@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 export const UserSidePanel = () => {
   return (
-    <div className="hidden md:flex flex-col px-6 py-4 bg-secondary flex-[2]">
+    <div className="hidden md:flex flex-col px-6 py-4 bg-secondary flex-[2] h-full">
       <ul>
         {sideMenus.map((menu) => (
           <li key={menu.title} className="mb-5">

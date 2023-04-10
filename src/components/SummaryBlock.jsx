@@ -1,17 +1,17 @@
 import React from 'react'
-import {users} from '../data/dummyUsers'
 import { Link } from 'react-router-dom'
-import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 
-export const SummaryBlock = () => {
+export const SummaryBlock = ({title, total, icon, linkName, path,}) => {
   return (
-    <div className='flex items-end justify-between max-w-[70%] p-4 bg-slate-400'>
+    <div className='flex justify-between items-end w-[70%] max-w-[350px] p-4 bg-white shadow-md'>
       <div>
-        <h5>USERS</h5>
-        <h1 className='text-3xl'>18</h1>
-        <Link className='text-[12px] py-1 px-4 rounded-sm' to='/blogs'>see all</Link>
+        <h5>{title}</h5>
+        <h1 className='text-3xl'>{total}</h1>
+        <Link className='bg-slate-300 text-[12px] py-1 px-4 rounded-sm' to={path}>{linkName}</Link>
       </div>
-      <SupervisedUserCircleIcon sx={{fontSize:'30px'}}/>
+      <div className='text-lg'>
+        {icon}
+      </div>
     </div>
   )
 }

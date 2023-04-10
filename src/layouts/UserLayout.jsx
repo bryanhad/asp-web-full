@@ -5,15 +5,21 @@ import { UserFooter } from "../components/UserFooter"
 
 export const UserLayout = () => {
   return (
-    <div className="h-screen relative">
+    <div className="min-h-screen w-full flex flex-col relative">
+      <div className="w-full max-h-max">
         <UserNavbar/>
-        <div className="flex h-full">
-            <UserSidePanel/>
-            <main className="flex-[6] lg:flex-[8]">
-                <Outlet/>
-            </main>
+      </div>
+      <div className="flex-[10] flex">
+        <div className="md:flex-[2]">
+          <UserSidePanel/>
         </div>
+        <div className="flex-[7]">
+          <Outlet/>
+        </div>
+      </div>
+      <div className="w-full max-h-max">
         <UserFooter/>
+      </div>
     </div>
   )
 }
