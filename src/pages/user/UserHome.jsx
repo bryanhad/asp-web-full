@@ -8,26 +8,26 @@ import { MUITable } from "../../components/MUITable";
 export const UserHome = () => {
   return (
     <div className="w-full h-full bg-slate-100">
-      <div className="p-4 flex flex-col gap-6 items-center sm:flex-row">
+      <div className="p-4 flex flex-col sm:flex-row gap-6 items-center">
         <SummaryBlock
           title="USERS"
           total={users.length}
           linkName="see all users"
-          path="users"
-          icon={<SupervisedUserCircleIcon fontSize="large" />}
+          path="members"
+          icon={<SupervisedUserCircleIcon className="text-asp-yellow" fontSize="large" />}
         />
         <SummaryBlock
           title="BLOGS"
           total={blogs.length}
           linkName="see all blogs"
           path="blogs"
-          icon={<VerticalSplitIcon fontSize="large" />}
+          icon={<VerticalSplitIcon className="text-asp-yellow" fontSize="large" />}
         />
       </div>
 
       <div className="w-full p-4">
         <MiniTable title='MEMBER LIST'>
-          <MUITable data={users} columns={userColumns} customHeight='370px'/>
+          <MUITable data={users} columns={userColumns} customHeight='372px'/>
         </MiniTable>
         <MiniTable title='BLOG LIST'>
           <MUITable data={blogs} columns={blogColumns} customHeight='370px' />
@@ -49,7 +49,7 @@ const MiniTable = ({ children, title }) => {
           Add New
         </button>
       </div>
-      <div className=" w-full overflow-x-auto relative min-h-[370px]">
+      <div className=" w-full overflow-x-auto relative min-h-[372px]">
         {children}
       </div>
     </div>
