@@ -8,14 +8,10 @@ export const MUITable = ({ data, columns, customHeight }) => {
       <DataGrid
         rows={data}
         columns={columns}
-        options={{ 
-          pageSizeOptions: [5, 10, 20],
-        }}
         initialState={{
-          pagination: {
-            paginationModel: { pageSize: 5, page: 0 },
-          },
+          pagination: { paginationModel: { pageSize: 5 } },
         }}
+        pageSizeOptions={[5,10,25]}
         getRowClassName={(params) =>
             params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'bg-slate-100/70'
           }

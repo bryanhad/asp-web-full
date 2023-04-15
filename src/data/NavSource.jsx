@@ -20,15 +20,22 @@ export const sideMenus = [
     title: 'USER',
     links: [
       { icon: <AccountCircleIcon />, path: 'profile', name: 'Profile' },
-      { icon: <LogoutIcon />, path: '/login', name: 'Logout' },
+      // { icon: <LogoutIcon />, path: '/login', name: 'Logout' },
     ],
   },
 ]
 
 export const user = {
-  role: 'admin',
-  img: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw3NjA4Mjc3NHx8ZW58MHx8fHw%3D&w=1000&q=80',
-  name: 'Erwin',
+  id: 8,
+  image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw3NjA4Mjc3NHx8ZW58MHx8fHw%3D&w=1000&q=80",
+  fullname: "Erwin Putra",
+  username: "Erwin",
+  phone: "085216165452",
+  email: "ErwinPra@gmail.com",
+  address: "10 Melody Lane, Richardson,tx, 35081  United States",
+  password: "iLike2Cats",
+  position: "Managing Associate",
+  role: "admin",
 }
 
 export const ICON = ({ children }) => {

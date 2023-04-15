@@ -23,19 +23,19 @@ export const UserNavbar = () => {
             />
             <img
               className="h-[30px] w-[30px] rounded-full"
-              src={user.img}
-              alt={user.name}
+              src={user.image}
+              alt={user.username}
             />
           </div>
-          <h5 className="ml-2 font-[300] text-slate-100">{user.name}</h5>
+          <h5 className="ml-2 font-[300] text-slate-100">{user.username}</h5>
         </div>
 
         {/* Burger */}
         <div className="md:hidden" onClick={() => setNavOpen(!navOpen)}>
           {navOpen ? (
-            <CloseIcon className='text-slate-100' sx={{ fontSize: '30px' }} />
+            <CloseIcon className="text-slate-100" sx={{ fontSize: '30px' }} />
           ) : (
-            <MenuIcon className='text-slate-100' sx={{ fontSize: '30px' }} />
+            <MenuIcon className="text-slate-100" sx={{ fontSize: '30px' }} />
           )}
         </div>
 
@@ -45,11 +45,11 @@ export const UserNavbar = () => {
             navOpen ? 'left-0' : 'left-[-100%]'
           } top-0 duration-500 ease-in-out  w-[60vw] h-screen bg-primary/80`}
         >
-          <div className='p-4 bg-secondary mb-8'>
+          <div className="p-4 bg-secondary mb-8">
             <h1 className="text-2xl font-bold text-slate-100">LOGO</h1>
           </div>
 
-          <div className='mx-4'>
+          <div className="mx-4">
             <ul>
               {sideMenus.map((menu) => (
                 <li key={menu.title} className="mb-5">
@@ -57,34 +57,38 @@ export const UserNavbar = () => {
                     {menu.title}
                   </h5>
                   {menu.links.map((link) => (
-                <div key={link.name} className='hover:bg-white/20'>
-                {link.name === 'Home' ? (
-                  <Link
-                    to={link.path}
-                    key={link.name}
-                    className="flex items-center p-1"
-                  >
-                    <ICON>{link.icon}</ICON>
-                    <span className="text-slate-100 lg:text-[20px]">
-                      {link.name}
-                    </span>
-                  </Link>
-                ) : (
-                  <NavLink
-                    to={link.path}
-                    key={link.name}
-                    className="flex items-center p-1"
-                  >
-                    <ICON>{link.icon}</ICON>
-                    <span className="text-slate-100 lg:text-[20px]">
-                      {link.name}
-                    </span>
-                  </NavLink>
-                )}
-              </div>
+                    <div key={link.name} className="hover:bg-white/20">
+                      {link.name === 'Home' ? (
+                        <NavLink
+                          end
+                          to={link.path}
+                          key={link.name}
+                          className="flex items-center p-1"
+                        >
+                          <ICON>{link.icon}</ICON>
+                          <span className="text-slate-100 lg:text-[20px]">
+                            {link.name}
+                          </span>
+                        </NavLink>
+                      ) : (
+                        <NavLink
+                          to={link.path}
+                          key={link.name}
+                          className="flex items-center p-1"
+                        >
+                          <ICON>{link.icon}</ICON>
+                          <span className="text-slate-100 lg:text-[20px]">
+                            {link.name}
+                          </span>
+                        </NavLink>
+                      )}
+                    </div>
                   ))}
                 </li>
               ))}
+              <li>
+                a
+              </li>
             </ul>
 
             {/* Theme Color */}
@@ -102,13 +106,14 @@ export const UserNavbar = () => {
                 />
                 <img
                   className="h-[30px] w-[30px] rounded-full"
-                  src={user.img}
-                  alt={user.name}
+                  src={user.image}
+                  alt={user.username}
                 />
               </div>
-              <h5 className="ml-2 font-[300] text-slate-100">{user.name}</h5>
+              <h5 className="ml-2 font-[300] text-slate-100">
+                {user.username}
+              </h5>
             </div>
-
           </div>
         </div>
       </div>
