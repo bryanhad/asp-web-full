@@ -11,7 +11,7 @@ export const userColumns = [
     renderCell: (params) => (
       <div className="flex">
         <div className="relative">
-          {params.row.role === "admin" && (
+          {params.row.isAdmin === "true" && (
             <SettingsIcon
               className="absolute top-0 left-0 translate-x-[-50%] text-asp-yellow"
               sx={{ fontSize: 15 }}
@@ -19,7 +19,7 @@ export const userColumns = [
           )}
           <img
             className="w-[30px] h-[30px] rounded-full object-cover"
-            src={params.row.image}
+            src={params.row.profilePic}
             alt=""
           />
         </div>
@@ -31,18 +31,18 @@ export const userColumns = [
   { field: "phone", headerName: "Phone", width: 140 },
   { field: "position", headerName: "Position", width: 160 },
   {
-    field: "role",
+    field: "isAdmin",
     headerName: "Role",
     width: 70,
     renderCell: (params) => (
       <span
         className={
-          params.row.role === "admin"
+          params.row.isAdmin === "true"
             ? "text-asp-yellow font-semibold"
             : "text-slate-500 text-semibold"
         }
       >
-        {params.row.role}
+        {params.row.isAdmin === 'true' ? 'Admin' : 'User'}
       </span>
     ),
   },
@@ -52,7 +52,7 @@ export const userColumns = [
     width: 200,
     renderCell: (params) => (
       <div className="flex gap-4 items-center">
-        <Link to={`/user/members/${params.row.id}`}>
+        <Link to={`/user/members/${params.row.username}`}>
           <button
             className="bg-transparent hover:bg-blue-100 border border-blue-400 text-blue-400 rounded-md py-1 px-4"
             type="button"

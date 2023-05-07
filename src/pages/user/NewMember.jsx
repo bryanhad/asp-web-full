@@ -4,26 +4,20 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 
-import Radio from '@mui/material/Radio'
-import RadioGroup from '@mui/material/RadioGroup'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import FormControl from '@mui/material/FormControl'
-import FormLabel from '@mui/material/FormLabel'
 import { TitlePage } from '../../components/TitlePage'
 
 import {
-  Timestamp,
   addDoc,
   collection,
   serverTimestamp,
 } from 'firebase/firestore'
 import { db } from '../../firebase'
 import { useState } from 'react'
-import { MUIDatePicker } from '../../components/MUIDatePicker'
+import { DesktopDatePicker } from '@mui/x-date-pickers'
 
 export const NewMember = () => {
   const [data, setData] = useState({})
-  const [admin, setAdmin] = useState(false)
+  const [dateValue, setDateValue] = useState(null)
 
   const divClass = 'flex flex-col w-[85%]'
   const labelClass = 'text-slate-400 ml-1 mb-1'
@@ -62,6 +56,7 @@ export const NewMember = () => {
   }
 
   console.log(data)
+  console.log(dateValue)
 
   return (
     <div className="w-full h-full bg-slate-100 p-4">
@@ -91,7 +86,7 @@ export const NewMember = () => {
             <input
               type="text"
               id="fullname"
-              placeholder="John Doe"
+              placeholder="Insert full name"
               className={inputClass}
               onChange={handleInput}
             />
@@ -103,7 +98,7 @@ export const NewMember = () => {
             <input
               type="text"
               id="username"
-              placeholder="John_D"
+              placeholder="Insert username"
               className={inputClass}
               onChange={handleInput}
             />
@@ -112,12 +107,18 @@ export const NewMember = () => {
             <label htmlFor="birthday" className={labelClass}>
               Birthday
             </label>
-            <input
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DesktopDatePicker 
+              value={dateValue}
+              onChange={setDateValue}
+              />
+            </LocalizationProvider>
+            {/* <input
               className="outline-[6px] bg-slate-400 rounded-md text-white p-2"
               type="date"
               id="birthday"
               onChange={handleInput}
-            />
+            /> */}
           </div>
           <div className={divClass}>
             <label htmlFor="address" className={labelClass}>
@@ -126,7 +127,7 @@ export const NewMember = () => {
             <input
               type="text"
               id="address"
-              placeholder="Jl.Duren no.12, Jakarta Barat"
+              placeholder="e.g. Jl.Duren no.12, Jakarta Barat"
               className={inputClass}
               onChange={handleInput}
             />
@@ -138,7 +139,7 @@ export const NewMember = () => {
             <input
               type="number"
               id="phone"
-              placeholder="085284869985"
+              placeholder="Insert phone number"
               className={inputClass}
               onChange={handleInput}
             />
@@ -150,7 +151,7 @@ export const NewMember = () => {
             <input
               type="email"
               id="email"
-              placeholder="JodnTheDoe@gmail.com"
+              placeholder="Insert email"
               className={inputClass}
               onChange={handleInput}
             />
@@ -162,7 +163,7 @@ export const NewMember = () => {
             <input
               type="text"
               id="position"
-              placeholder="Junior Asssociate"
+              placeholder="e.g. Junior Asssociate"
               className={inputClass}
               onChange={handleInput}
             />

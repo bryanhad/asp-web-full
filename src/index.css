@@ -14,3 +14,35 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
   }
+
+.red{
+  color: crimson;
+  border-bottom-color: crimson;
+}
+.red>input::placeholder{
+  color: crimson;
+}
+
+.joget{
+  animation: joget .13s infinite;
+}
+
+@keyframes joget{
+  0% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+input.input:invalid[focused='true']{
+  border: 1px solid crimson;
+}
+
+input.input:invalid[focused='true'] ~ .input-error {
+  display: block;
+}
